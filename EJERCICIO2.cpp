@@ -122,6 +122,34 @@ void eliminarProducto() {
     }
 }
 
+void registrarVenta() {
+    if (numVentas < MAX_VENTAS) {
+        string nombreProducto;
+        cout << "Ingrese el nombre del producto: ";
+        cin >> nombreProducto;
+        bool encontrado = false;
+        for (int i = 0; i < numProductos; i++) {
+            if (productos[i].nombre == nombreProducto) {
+                ventas[numVentas].idVenta = nextVentaId++;
+                ventas[numVentas].producto = nombreProducto;
+                cout << "Ingrese la cantidad: ";
+                cin >> ventas[numVentas].cantidad;
+                ventas[numVentas].precioTotal = ventas[numVentas].cantidad * productos[i].precio;
+                numVentas++;
+                cout << "Venta registrada exitosamente.\n";
+                encontrado = true;
+                break;
+            }
+        }
+        if (!encontrado) {
+            cout << "Producto no encontrado.\n";
+        }
+    } else {
+        cout << "No se pueden registrar más ventas. Capacidad máxima alcanzada.\n";
+    }
+}
+
+
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
@@ -132,8 +160,8 @@ int main() {
         cout << "3: Buscar un producto por nombre.\n";
         cout << "4: Actualizar los datos de un producto.\n";
         cout << "5: Eliminar un producto.\n";
-        /*cout << "6: Registrar una venta.\n";
-        cout << "7: Listar las ventas realizadas.\n";
+        cout << "6: Registrar una venta.\n";
+        /*cout << "7: Listar las ventas realizadas.\n";
         cout << "8: Calcular el total de ventas realizadas.\n";
         cout << "9: Salir del programa.\n";*/
         cout << "\nSeleccione una opción: ";
@@ -155,10 +183,10 @@ int main() {
             case 5 :
                 eliminarProducto();
                 break;
-            /*case 6 :
+            case 6 :
                 registrarVenta();
                 break;
-            case 7 :
+            /*case 7 :
                 listarVentas();
                 break;
             case 8 :
