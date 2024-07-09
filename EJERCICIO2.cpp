@@ -62,6 +62,24 @@ void listarProductos() {
         cout << "Nombre: " << productos[i].nombre << ", Precio: " << productos[i].precio << "\n";
     }
 }
+
+void buscarProducto() {
+    string nombre;
+    cout << "Ingrese el nombre del producto a buscar: ";
+    cin >> nombre;
+    bool encontrado = false;
+    for (int i = 0; i < numProductos; i++) {
+        if (productos[i].nombre == nombre) {
+            cout << "Nombre: " << productos[i].nombre << ", Precio: " << productos[i].precio << "\n";
+            encontrado = true;
+            break;
+        }
+    }
+    if (!encontrado) {
+        cout << "Producto no encontrado.\n";
+    }
+}
+
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
@@ -69,8 +87,8 @@ int main() {
         cout << "\n---------------------MENÚ DE OPCIONES----------------------\n";
         cout << "1: Registrar un nuevo producto.\n";
         cout << "2: Listar los productos registrados.\n";
-        /*cout << "3: Buscar un producto por nombre.\n";
-        cout << "4: Actualizar los datos de un producto.\n";
+        cout << "3: Buscar un producto por nombre.\n";
+        /*cout << "4: Actualizar los datos de un producto.\n";
         cout << "5: Eliminar un producto.\n";
         cout << "6: Registrar una venta.\n";
         cout << "7: Listar las ventas realizadas.\n";
@@ -86,10 +104,10 @@ int main() {
             case 2 :
                 listarProductos();
                 break;
-            /*case 3 :
+            case 3 :
                 buscarProducto();
                 break;
-            case 4 :
+            /*case 4 :
                 actualizarProducto();
                 break;
             case 5 :
