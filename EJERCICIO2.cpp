@@ -156,6 +156,15 @@ void listarVentas() {
     }
 }
 
+void calcularTotalVentas() {
+    float total = 0;
+    for (int i = 0; i < numVentas; i++) {
+        total += ventas[i].precioTotal;
+    }
+    cout << "Total de ventas realizadas: " << total << "\n";
+}
+
+
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
@@ -168,8 +177,8 @@ int main() {
         cout << "5: Eliminar un producto.\n";
         cout << "6: Registrar una venta.\n";
         cout << "7: Listar las ventas realizadas.\n";
-        /*cout << "8: Calcular el total de ventas realizadas.\n";
-        cout << "9: Salir del programa.\n";*/
+        cout << "8: Calcular el total de ventas realizadas.\n";
+        /*cout << "9: Salir del programa.\n";*/
         cout << "\nSeleccione una opción: ";
         cin >> op;
 
@@ -195,10 +204,10 @@ int main() {
             case 7 :
                 listarVentas();
                 break;
-            /*case 8 :
+            case 8 :
                 calcularTotalVentas();
                 break;
-            case 9 :
+            /*case 9 :
                 cout << "Saliendo del programa...\n";
                 break;*/
             default:
