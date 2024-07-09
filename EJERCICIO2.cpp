@@ -57,15 +57,19 @@ void registrarProducto() {
         cout << "No se pueden registrar más productos. Capacidad máxima alcanzada.\n";
     }
 }
-
+void listarProductos() {
+    for (int i = 0; i < numProductos; i++) {
+        cout << "Nombre: " << productos[i].nombre << ", Precio: " << productos[i].precio << "\n";
+    }
+}
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
     do {
         cout << "\n---------------------MENÚ DE OPCIONES----------------------\n";
         cout << "1: Registrar un nuevo producto.\n";
-        /*cout << "2: Listar los productos registrados.\n";
-        cout << "3: Buscar un producto por nombre.\n";
+        cout << "2: Listar los productos registrados.\n";
+        /*cout << "3: Buscar un producto por nombre.\n";
         cout << "4: Actualizar los datos de un producto.\n";
         cout << "5: Eliminar un producto.\n";
         cout << "6: Registrar una venta.\n";
@@ -79,10 +83,10 @@ int main() {
             case 1 :
                 registrarProducto();
                 break;
-            /*case 2 :
+            case 2 :
                 listarProductos();
                 break;
-            case 3 :
+            /*case 3 :
                 buscarProducto();
                 break;
             case 4 :
