@@ -101,6 +101,27 @@ void actualizarProducto() {
     }
 }
 
+void eliminarProducto() {
+    string nombre;
+    cout << "Ingrese el nombre del producto a eliminar: ";
+    cin >> nombre;
+    int i;
+    for (i = 0; i < numProductos; i++) {
+        if (productos[i].nombre == nombre) {
+            break;
+        }
+    }
+    if (i < numProductos) {
+        for (int j = i; j < numProductos - 1; j++) {
+            productos[j] = productos[j + 1];
+        }
+        numProductos--;
+        cout << "Producto eliminado exitosamente.\n";
+    } else {
+        cout << "Producto no encontrado.\n";
+    }
+}
+
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
@@ -110,8 +131,8 @@ int main() {
         cout << "2: Listar los productos registrados.\n";
         cout << "3: Buscar un producto por nombre.\n";
         cout << "4: Actualizar los datos de un producto.\n";
-        /*cout << "5: Eliminar un producto.\n";
-        cout << "6: Registrar una venta.\n";
+        cout << "5: Eliminar un producto.\n";
+        /*cout << "6: Registrar una venta.\n";
         cout << "7: Listar las ventas realizadas.\n";
         cout << "8: Calcular el total de ventas realizadas.\n";
         cout << "9: Salir del programa.\n";*/
@@ -131,10 +152,10 @@ int main() {
             case 4 :
                 actualizarProducto();
                 break;
-            /*case 5 :
+            case 5 :
                 eliminarProducto();
                 break;
-            case 6 :
+            /*case 6 :
                 registrarVenta();
                 break;
             case 7 :
