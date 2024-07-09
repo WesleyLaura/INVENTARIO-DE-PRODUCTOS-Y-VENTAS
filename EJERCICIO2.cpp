@@ -178,7 +178,7 @@ int main() {
         cout << "6: Registrar una venta.\n";
         cout << "7: Listar las ventas realizadas.\n";
         cout << "8: Calcular el total de ventas realizadas.\n";
-        /*cout << "9: Salir del programa.\n";*/
+        cout << "9: Salir del programa.\n";
         cout << "\nSeleccione una opción: ";
         cin >> op;
 
@@ -207,9 +207,9 @@ int main() {
             case 8 :
                 calcularTotalVentas();
                 break;
-            /*case 9 :
+            case 9 :
                 cout << "Saliendo del programa...\n";
-                break;*/
+                break;
             default:
                 cout << "Opción no válida. Intente nuevamente.\n";
         }
