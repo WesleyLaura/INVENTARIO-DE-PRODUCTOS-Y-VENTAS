@@ -149,6 +149,12 @@ void registrarVenta() {
     }
 }
 
+void listarVentas() {
+    for (int i = 0; i < numVentas; i++) {
+        cout << "ID Venta: " << ventas[i].idVenta << ", Producto: " << ventas[i].producto
+             << ", Cantidad: " << ventas[i].cantidad << ", Precio Total: " << ventas[i].precioTotal << "\n";
+    }
+}
 
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
@@ -161,8 +167,8 @@ int main() {
         cout << "4: Actualizar los datos de un producto.\n";
         cout << "5: Eliminar un producto.\n";
         cout << "6: Registrar una venta.\n";
-        /*cout << "7: Listar las ventas realizadas.\n";
-        cout << "8: Calcular el total de ventas realizadas.\n";
+        cout << "7: Listar las ventas realizadas.\n";
+        /*cout << "8: Calcular el total de ventas realizadas.\n";
         cout << "9: Salir del programa.\n";*/
         cout << "\nSeleccione una opción: ";
         cin >> op;
@@ -186,10 +192,10 @@ int main() {
             case 6 :
                 registrarVenta();
                 break;
-            /*case 7 :
+            case 7 :
                 listarVentas();
                 break;
-            case 8 :
+            /*case 8 :
                 calcularTotalVentas();
                 break;
             case 9 :
