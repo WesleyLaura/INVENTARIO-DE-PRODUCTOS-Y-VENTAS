@@ -59,7 +59,7 @@ void registrarProducto() {
 }
 void listarProductos() {
     for (int i = 0; i < numProductos; i++) {
-        cout << "Nombre: " << productos[i].nombre << ", Precio: " << productos[i].precio << "\n";
+        cout << "Nombre: " << productos[i].nombre << ", Precio: "<<"$ " << productos[i].precio << "\n";
     }
 }
 
@@ -80,6 +80,27 @@ void buscarProducto() {
     }
 }
 
+void actualizarProducto() {
+    string nombre;
+    cout << "Ingrese el nombre del producto a actualizar: ";
+    cin >> nombre;
+    bool encontrado = false;
+    for (int i = 0; i < numProductos; i++) {
+        if (productos[i].nombre == nombre) {
+            cout << "Ingrese el nuevo nombre del producto: ";
+            cin >> productos[i].nombre;
+            cout << "Ingrese el nuevo precio del producto: ";
+            cin >> productos[i].precio;
+            cout << "Producto actualizado exitosamente.\n";
+            encontrado = true;
+            break;
+        }
+    }
+    if (!encontrado) {
+        cout << "Producto no encontrado.\n";
+    }
+}
+
 int main() {
 	SetConsoleOutputCP(CP_UTF8);
     int op;
@@ -88,8 +109,8 @@ int main() {
         cout << "1: Registrar un nuevo producto.\n";
         cout << "2: Listar los productos registrados.\n";
         cout << "3: Buscar un producto por nombre.\n";
-        /*cout << "4: Actualizar los datos de un producto.\n";
-        cout << "5: Eliminar un producto.\n";
+        cout << "4: Actualizar los datos de un producto.\n";
+        /*cout << "5: Eliminar un producto.\n";
         cout << "6: Registrar una venta.\n";
         cout << "7: Listar las ventas realizadas.\n";
         cout << "8: Calcular el total de ventas realizadas.\n";
@@ -107,10 +128,10 @@ int main() {
             case 3 :
                 buscarProducto();
                 break;
-            /*case 4 :
+            case 4 :
                 actualizarProducto();
                 break;
-            case 5 :
+            /*case 5 :
                 eliminarProducto();
                 break;
             case 6 :
